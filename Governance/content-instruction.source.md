@@ -1443,3 +1443,30 @@ The active `{content}` response format now has exactly four top-level outputs:
 ## 3. Best possible prompt for Claude
 
 ## 4. Updated `{content}` instruction live-file update
+
+
+---
+
+## 24. Changelog — Live-file regeneration after four-output amendment
+
+Status: ACTIVE
+Version: content-live-v2-regeneration
+Date: 2026-07-10
+Authority: User-approved additive governance update
+
+`Prompts/content-instruction.live.md` was regenerated from the active four-output `{content}` workflow.
+
+This regeneration removes obsolete active three-output runtime wording from the live file.
+
+The source file remains additive-only. Older three-output source history is preserved but superseded by:
+
+`content-four-output-amendment-v1 / 2026-07-10`
+
+The active live file now uses:
+
+- `Governance/content-instruction.source.md` as source of truth;
+- `Prompts/content-instruction.live.md` as generated runtime instruction;
+- exactly four top-level GPT outputs;
+- source/live drift reporting;
+- rule-conflict and obsolete-rule auditing;
+- explicit no-overclaim verification rules.
