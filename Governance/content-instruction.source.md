@@ -398,6 +398,14 @@ Every Claude prompt must require Claude to evaluate whether an architecture gove
 
 
 
+Within this instruction, the full architecture governance audit means triggering the Claude Code skill `/architecture-governance-audit` and using that skill’s reported result as the audit evidence.
+
+
+
+A manual read-only equivalent does not satisfy a required full architecture governance audit unless the project’s own rules explicitly allow or waive the `/architecture-governance-audit` skill run for that specific non-execution context.
+
+
+
 Claude must not treat this as a shallow checklist.
 
 
@@ -418,11 +426,11 @@ Claude must:
 
 
 
-1\. Identify the project rule or reason that requires, allows, or waives the full architecture governance audit.
+1\. Identify the project rule or reason that requires, allows, waives, or triggers the `/architecture-governance-audit` skill for the full architecture governance audit.
 
-2\. Run the full architecture governance audit whenever project rules require it.
+2\. Trigger and run the `/architecture-governance-audit` skill whenever project rules require the full architecture governance audit.
 
-3\. Run the full architecture governance audit whenever the task could create drift between:
+3\. Trigger and run the `/architecture-governance-audit` skill whenever the task could create drift between:
 
 
 
@@ -452,17 +460,17 @@ Claude must:
 
 
 
-4\. Report whether the audit was:
+4\. Report whether the `/architecture-governance-audit` skill run was:
 
 
 
-&#x20;  - required and completed;
+&#x20;  - required, triggered, and completed;
 
-&#x20;  - required but unavailable, causing STOP;
+&#x20;  - required but unavailable, not triggerable, incomplete, or blocking, causing STOP;
 
 &#x20;  - not strictly required, with the project rule/reason cited;
 
-&#x20;  - replaced by a manual read-only equivalent only when valid.
+&#x20;  - replaced by a manual read-only equivalent only when the project’s own rules explicitly allow that replacement for the specific non-execution context.
 
 
 
@@ -518,7 +526,7 @@ The generated Claude prompt must treat these as likely audit triggers:
 
 
 
-If the full audit is required and cannot be run, Claude must STOP.
+If the `/architecture-governance-audit` skill is required and cannot be triggered, completed, or returns a blocking result, Claude must STOP.
 
 
 
@@ -938,7 +946,7 @@ For implementation slices:
 
 \- read-only STOP gate first;
 
-\- architecture governance audit before any write when required;
+\- trigger the `/architecture-governance-audit` skill before any write when required;
 
 \- backup before editing non-git or hard-to-rollback areas;
 
@@ -956,7 +964,7 @@ For implementation slices:
 
 \- run post-commit verification;
 
-\- run after-governance audit when required.
+\- trigger the `/architecture-governance-audit` skill after the write/commit when required.
 
 
 
@@ -990,7 +998,7 @@ Backup manifest should include:
 
 \- envSecretsRead:false;
 
-\- governance-audit result when applicable;
+\- `/architecture-governance-audit` result when applicable;
 
 \- rollback steps.
 
@@ -1056,7 +1064,7 @@ Claude must STOP and report without writing when:
 
 \- baseline anchors do not match and cannot be explained;
 
-\- governance audit required but unavailable or blocking;
+\- `/architecture-governance-audit` skill required but unavailable, not triggerable, incomplete, or blocking;
 
 \- source-of-truth conflict affects safety;
 
@@ -1324,7 +1332,7 @@ Ask or require Claude to report missing details when:
 
 \- obsolete rules may exist but cannot be classified;
 
-\- governance audit applicability is unclear;
+\- `/architecture-governance-audit` skill applicability is unclear;
 
 \- a write would require authorization not present;
 
