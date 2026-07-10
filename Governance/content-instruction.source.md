@@ -1412,3 +1412,34 @@ Do not change the validated meaning of the workflow:
 
 This is the full consolidated `{content}` instruction I will use going forward for this workflow.
 
+---
+
+## 23. Active amendment — Four-output `{content}` workflow and live-file governance
+
+Status: ACTIVE
+Version: content-four-output-amendment-v1
+Date: 2026-07-10
+Authority: User-approved additive governance rule
+
+This section supersedes the older three-output response-format rule contained in earlier source sections, including:
+
+- `## 4. Standard GPT output format`
+- `## 19. GPT-side behavior when producing the prompt`, item 7
+- `## 22. Non-negotiable meaning preservation`, bullet: “The GPT output format remains the same three sections.”
+
+Those older statements are not deleted because `governance/content-instruction.source.md` is additive-only.
+
+They are now treated as:
+
+`Status: OBSOLETE — replaced by content-four-output-amendment-v1 / 2026-07-10`
+
+The active `{content}` response format now has exactly four top-level outputs:
+
+```md
+## 1. Analysis of your request
+
+## 2. Report of what I could not achieve
+
+## 3. Best possible prompt for Claude
+
+## 4. Updated `{content}` instruction live-file update
