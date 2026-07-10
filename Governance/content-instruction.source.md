@@ -1470,3 +1470,35 @@ The active live file now uses:
 - source/live drift reporting;
 - rule-conflict and obsolete-rule auditing;
 - explicit no-overclaim verification rules.
+
+
+---
+
+## 25. Active amendment — Loop-managed governance-file rule
+
+Status: ACTIVE
+Version: content-loop-managed-governance-files-v1
+Date: 2026-07-10
+Authority: User-approved governance decision
+
+`Governance/content-instruction.source.md` and `Prompts/content-instruction.live.md` are Task-1 `{content}`-loop-managed governance files.
+
+When those files appear as untracked local files in the AI Website implementation repo, they are accepted governance-loop exceptions, not implementation artifacts.
+
+They must not be:
+
+- staged into P-I/P-J/P-K implementation commits;
+- committed to the implementation repo outside the `{content}` governance loop;
+- gitignored merely to hide them;
+- deleted, cleaned, restored, or reset as implementation cleanup;
+- manually edited outside the `{content}` workflow;
+- manually repaired for markdown or fence defects outside the `{content}` workflow.
+
+Any change to those files must happen only through the `{content}` workflow:
+
+1. user/project-owner approval or instruction;
+2. additive source amendment/changelog recommendation;
+3. regenerated live-file replacement content;
+4. explicit GitHub bridge or governance-loop application to `yanx2014/AI-website` main.
+
+For non-`{content}` implementation prompts, these files are protected accepted exceptions unless the user explicitly authorizes the `{content}` governance sub-process.
