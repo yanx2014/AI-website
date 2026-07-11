@@ -1510,3 +1510,23 @@ Any change to those files must happen only through the `{content}` workflow:
 4. explicit GitHub bridge or governance-loop application to `yanx2014/AI-website` main.
 
 For non-`{content}` implementation prompts, these files are protected accepted exceptions unless the user explicitly authorizes the `{content}` governance sub-process.
+
+---
+
+## 26. Changelog — Live-file regeneration after architecture-governance-audit skill clarification
+
+Status: ACTIVE
+Version: content-live-v4-architecture-governance-audit-skill-sync
+Date: 2026-07-11
+Authority: Project-owner-approved source/live reconciliation
+
+`Prompts/content-instruction.live.md` was regenerated as `content-live-v4` from the active source rule clarifying the full architecture governance audit requirement.
+
+This regeneration synchronizes the live runtime instruction with the source rule that:
+
+- the full architecture governance audit means triggering the Claude Code skill `/architecture-governance-audit`;
+- the skill’s reported result is the audit evidence;
+- a manual read-only equivalent satisfies a required full audit only when the project’s own rules explicitly allow or waive the `/architecture-governance-audit` skill run for that specific non-execution context;
+- Claude must STOP if the skill is required and cannot be triggered, completed, or returns a blocking result.
+
+The source file remains additive-only. Older live wording that treated architecture-governance audit as a generic manual-equivalent checklist is superseded by the current `/architecture-governance-audit` skill requirement.
